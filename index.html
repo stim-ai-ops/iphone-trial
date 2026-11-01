@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src https://api.github.com; frame-src about:; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="iPhone試し">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="robots" content="noindex,nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACdElEQVR4nO3SsQ0CAAwDQU/CTIzIprAAlugciTt9nxTO4/mSvpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOluHtN78xDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoPrHceh4mX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc62wdRzI8p8qwZ/wAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACdElEQVR4nO3SsQ0CAAwDQU/CTIzIprAAlugciTt9nxTO4/mSvpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOluHtN78xDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoDIOKuOgMg4q46AyDirjoPrHceh4mX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc6W+Yf6GyZf6CzZf6Bzpb5Bzpb5h/obJl/oLNl/oHOlvkHOlvmH+hsmX+gs2X+gc6W+Qc62wdRzI8p8qwZ/wAAAABJRU5ErkJggg==">
+<title>iPhoneの試し</title>
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;padding:12px 12px 80px;font:16px/1.7 -apple-system,"Hiragino Sans",sans-serif;color:#1a1a1a;background:#f3f4f7;overflow-wrap:anywhere}
+h1{font-size:21px;margin:4px 0 6px}
+h2{font-size:17px;margin:0 0 4px}
+p{margin:6px 0}
+.box{background:#fff;border-radius:12px;padding:12px;margin:10px 0;border:1px solid #dde}
+.warn{border-color:#d33;background:#fff4f4}
+.stop{background:#d33;color:#fff;font-weight:700}
+.small{font-size:14px;color:#555}
+button{font:inherit;min-height:46px;padding:8px 14px;margin:4px 6px 4px 0;border-radius:10px;border:1px solid #1e50a0;background:#1e50a0;color:#fff}
+button.sub{background:#fff;color:#1e50a0}
+button[disabled]{opacity:.4}
+input,textarea{font:inherit;width:100%;min-height:46px;padding:8px;border:1px solid #99a;border-radius:8px;background:#fff}
+label{display:block;margin-top:8px;font-weight:600}
+.badge{display:inline-block;min-width:44px;text-align:center;border-radius:8px;padding:0 8px;font-weight:700;margin-right:6px;background:#ddd;color:#333}
+.badge.ok{background:#1b8a3a;color:#fff}
+.badge.ng{background:#d33;color:#fff}
+.badge.part{background:#e9a400;color:#000}
+.note{font-size:14px;color:#333;background:#f6f6f0;border-radius:8px;padding:6px 8px;margin-top:6px;white-space:pre-wrap}
+.ask{margin-top:6px;font-weight:600}
+ol{padding-left:22px;margin:6px 0}
+.mock{border:2px solid #1e50a0;border-radius:10px;overflow:hidden}
+.mockbar{background:#1e50a0;color:#fff;padding:6px 10px;font-size:14px}
+.mock iframe{width:100%;height:70px;border:0;background:#eef}
+.compose{padding:8px;background:#fff}
+pre{white-space:pre-wrap;font-size:13px;background:#111;color:#e6e6e6;padding:8px;border-radius:8px;overflow-wrap:anywhere}
+#sum{position:sticky;top:0;z-index:5;background:#1a1a1a;color:#fff;border-radius:10px;padding:8px 12px;font-weight:700}
+</style>
+</head>
+<body>
+<h1>iPhoneの試し</h1>
+<p class="small">新しい画面が、このiPhoneで本当に動くかを測るページです。ぜんぶダミーの文字で動きます。</p>
+
+<div id="sum">読み込み中</div>
+
+<div class="box warn">
+<b>先に読む3つ</b>
+<ol>
+<li>本物の文字は入れない。使う鍵は「試し専用の空のリポ」だけに届く細い鍵。</li>
+<li>試しが終わった日に、その鍵をGitHubで消す。</li>
+<li>鍵を消した確かめのあと<b>8日間は、このアイコンを開かない</b>。開くと数え直しになる見込み。</li>
+</ol>
+</div>
+<div id="guard" class="box stop" hidden></div>
+
+<div class="box">
+<b>今の開き方</b>
+<div id="env" class="small"></div>
+</div>
+
+<div class="box">
+<b>やる順（1日目）</b>
+<ol class="small">
+<li>Safariでこのページを開き、共有から「ホーム画面に追加」</li>
+<li>ホーム画面のアイコンから開き直す（以降はずっとこちら）</li>
+<li>①②を押してFace IDを登録する</li>
+<li>③の鍵をふうして保存 → ④票 → ⑤確認</li>
+<li>⑥⑨⑩⑪⑫⑭を順に押す</li>
+<li>⑧わざと失敗させる</li>
+<li>いったんアプリを閉じて開き直し、③を押す</li>
+<li>⑦の「今から再起動する」を押して時刻を記録してから、iPhoneを再起動する</li>
+<li>再起動のあと、アイコンを開いて⑦の「再起動のあと解く」を押す</li>
+<li>GitHubで鍵を消し、「鍵を消した確かめ」を押す</li>
+</ol>
+<b>8日後</b>
+<ol class="small"><li>⑬を押す（その日、1回だけ開く）</li></ol>
+</div>
+
+<div class="box">
+<label for="repo">試し専用リポ（所有者/名前）</label>
+<input id="repo" placeholder="例：owner/repo-name" autocapitalize="off" autocorrect="off" spellcheck="false">
+<p class="small">空で、非公開で、この鍵だけが届くリポです。ページが自分で確かめて、違えば止まります。</p>
+</div>
+
+<div id="items"></div>
+
+<div class="box">
+<h2>終わったあとの後片付け（この順に）</h2>
+<ol class="small">
+<li>下の「この端末の記録を消す」を押す</li>
+<li>ホーム画面のアイコンを消す</li>
+<li>パスワードのアプリ（設定）で、試しのパスキーを消す</li>
+<li>試し専用の空のリポを消す（鍵は試しの日に消してあるはず）</li>
+</ol>
+</div>
+
+<div class="box">
+<h2>結果をまとめる</h2>
+<button data-act="export">結果の文を作る</button>
+<button class="sub" data-act="wipe">この端末の記録を消す</button>
+<pre id="out" hidden></pre>
+<p class="small">この文には鍵も本物の文字も入りません。そのまま、頼んだ人に貼ってください。</p>
+</div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const enc=new TextEncoder();
+const rand=n=>crypto.getRandomValues(new Uint8Array(n));
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u)));
+const unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const b64u=u=>b64(u).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const hex=u=>[...new Uint8Array(u)].map(x=>x.toString(16).padStart(2,'0')).join('');
+const sha=async d=>new Uint8Array(await crypto.subtle.digest('SHA-256',d));
+const cat=(...a)=>{const o=new Uint8Array(a.reduce((n,x)=>n+x.length,0));let i=0;for(const x of a){o.set(x,i);i+=x.length}return o};
+const SALT=enc.encode('iphone-trial-seal-v1');
+const SK='iphonetrial.v1';
+const DAY=86400000;
+const bootId=b64u(rand(8));
+let S={res:{},opens:[],cred:null,sealed:null,restartAt:null,revokeAt:null,repo:'',keepSeen:null};
+try{Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}};
+const LONG_HIDE=10*60000;let hiddenAt=null,bootAt=0,BLOCKED=false, tokenMem=null, throwMem=null, hiddenCount=0, hiddenDropped=false;
+
+const standalone=()=>navigator.standalone===true||matchMedia('(display-mode: standalone)').matches;
+const iosVer=()=>{const m=navigator.userAgent.match(/OS (\d+[_\d]*)/);return m?m[1].replace(/_/g,'.'):'不明'};
+const now=()=>Date.now();
+const fmt=t=>t?new Date(t).toLocaleString('ja-JP'):'まだ';
+
+/* ---------- 項目の定義 ---------- */
+const ITEMS=[
+{k:'1',t:'ホーム画面から開くと、Face IDが出る',d:'アイコンから開いた形で、顔の確認が出ます。Face IDの登録もここでします。',a:'<button data-act="reg">Face IDを登録する</button><button class="sub" data-act="face1">もう一度確認する</button>'},
+{k:'2',t:'「ふう」をする力が使える',d:'顔の確認と同時に、その人だけの秘密の値をもらえるかを見ます（PRFという名前の力）。',a:'<button data-act="prf">秘密の値をもらう</button>'},
+{k:'3',t:'ふうをした鍵を保存し、次に開いた時に解ける',d:'細い鍵を秘密の値でふうして保存します。アプリを閉じて開き直したあと、もう一度解きます。',a:'<label for="tok">試し専用の細い鍵（ふうのあと消えます）</label><input id="tok" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button data-act="seal">ふうして保存</button><button class="sub" data-act="unseal3">開き直したあと解く</button>'},
+{k:'4',t:'GitHubに試しの票を作れる',d:'試し専用リポに、ダミーの票（Issue）を1枚作ります。先に、リポが空で非公開か、鍵が1つのリポだけに届くかも確かめます。',a:'<button data-act="issue">票を作る</button>'},
+{k:'5',t:'票の「連携アプリ」の欄が空',d:'④の票をGitHubで開き、票の画面に、アプリ経由で作ったと分かる表示が出ていないかを目で見ます。',a:'<button class="sub" data-act="a5">見た</button>'},
+{k:'6',t:'枠の中に、取ってきた画面を流し込める',d:'GitHubから取った文字を、閉じた枠の中へ流し込み、枠の中で正しく受け取れたかを見ます。',a:'<button data-act="f6">流し込む</button>'},
+{k:'7',t:'iPhoneを再起動したあとも解ける',d:'再起動のあと、③で保存した鍵を解きます。再起動した日時をページが覚えます。',a:'<button class="sub" data-act="restart">今から再起動する（時刻を記録）</button><button data-act="unseal7">再起動のあと解く</button>'},
+{k:'8',t:'Face IDに失敗したら解けない',d:'押したあと、わざと顔を外す・取り消すなどで失敗させます。解けないのが正しい動きです。パスコードに回ったらそれも記録します。',a:'<button data-act="fail8">わざと失敗させる</button>'},
+{k:'9',t:'取り出せない使い捨ての鍵が作れる',d:'中身を取り出せない鍵を作り、取り出せないこと、署名できること、画面を隠した時に捨てられるかを見ます。',a:'<button data-act="th9">使い捨ての鍵を作る</button><button class="sub" data-act="th9s">署名してみる</button>'},
+{k:'10',t:'枠を閉じ込めても動く',d:'枠の中から、外のページを動かす・読む・勝手な外部通信をしようとして、全部止まるかを見ます。',a:'<button data-act="f10">閉じ込めを試す</button>'},
+{k:'11',t:'1回のFace IDで、署名と秘密の値が両方もらえる',d:'1回の確認で、署名とふうの値が同時に取れるかを見ます。',a:'<button data-act="one11">1回で両方もらう</button>'},
+{k:'12',t:'取り出せない鍵で署名でき、手元で検算できる',d:'ホーム画面の形で、取り出せない鍵で署名し、そのページで検算します。署名の文は、手元のパソコンでも検算できます。',a:'<button data-act="sg12">署名して検算する</button>'},
+{k:'13',t:'8日後に、③をもう一度測る',d:'鍵を消した確かめの8日後に、保存した鍵が解けるかを見ます。8日たつまでボタンは押せません。',a:'<div id="cd13" class="small"></div><button data-act="late13" id="b13">8日後に解く</button>'},
+{k:'14',t:'返信の入力欄が、枠の上で動く',d:'下の入力欄に日本語を打ちます。キーボードが出た時の高さ・日本語の変換・上の枠の見え方を測ります。作り物の文だけ打ってください。',a:'<div class="mock" id="mock"><div class="mockbar" id="mockbar">枠の表示（ここが見えなくなったら×）</div><iframe id="mf" sandbox srcdoc="&lt;body style=&quot;font:14px sans-serif;margin:8px&quot;&gt;ダミーの画面です&lt;/body&gt;"></iframe><div class="compose"><textarea id="ta" rows="2" placeholder="ここに日本語を打つ（例：ありがとう）"></textarea><button class="sub" type="button">送る（ダミー）</button></div></div><div id="live14" class="small"></div><button data-act="m14">測った結果を見る</button>'},
+{k:'r',t:'鍵を消した確かめ（その日のうち）',d:'GitHubで試し用の鍵を消したあとに押します。消した鍵で票が作れず、断られた返事を記録します。この日時から8日を数えます。',a:'<button data-act="rev">消した鍵で票を作ってみる</button>'}
+];
+
+function draw(){
+  $('#items').innerHTML=ITEMS.map(i=>`<div class="box" id="c${i.k}"><h2><span class="badge" id="b${i.k}">未</span>${num(i.k)}${i.t}</h2><p class="small">${i.d}</p><div>${i.a}</div><div class="ask" id="ask${i.k}"></div><div class="note" id="n${i.k}" hidden></div></div>`).join('');
+  for(const i of ITEMS){const r=S.res[i.k];if(r)show(i.k,r.s,r.note)}
+  sum();
+}
+function num(k){const c=['','①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭'];return k==='r'?'':c[+k]+' '}
+function show(k,s,note){
+  const b=$('#b'+k);b.className='badge '+(s==='wait'?'':s);b.textContent={ok:'〇',ng:'×',part:'△',wait:'未'}[s]||'未';
+  const n=$('#n'+k);if(note){n.hidden=false;n.textContent=note}else n.hidden=true;
+}
+function setRes(k,s,note){S.res[k]={s,note:note||'',t:now()};save();show(k,s,note);sum()}
+function sum(){
+  const ks=ITEMS.map(i=>i.k),c={ok:0,ng:0,part:0};
+  ks.forEach(k=>{const r=S.res[k];if(r&&c[r.s]!==undefined)c[r.s]++});
+  $('#sum').textContent=`〇 ${c.ok} ／ × ${c.ng} ／ △ ${c.part} ／ 未 ${ks.length-c.ok-c.ng-c.part}（全${ks.length}件）`;
+}
+function ask(k,q,choices){
+  return new Promise(res=>{
+    const el=$('#ask'+k);el.innerHTML='';
+    const p=document.createElement('div');p.textContent=q;el.appendChild(p);
+    choices.forEach((c,i)=>{const b=document.createElement('button');b.className=i?'sub':'';b.textContent=c;b.onclick=()=>{el.innerHTML='';res(i)};el.appendChild(b)});
+  });
+}
+
+/* ---------- WebAuthn ---------- */
+async function getA(challenge,prf){
+  if(!S.cred)throw Object.assign(new Error('先に①でFace IDを登録してください'),{name:'NoCred'});
+  const ext=prf?{prf:{eval:{first:SALT}}}:{};
+  const a=await navigator.credentials.get({publicKey:{challenge,allowCredentials:[{type:'public-key',id:unb64(S.cred.id)}],userVerification:'required',timeout:60000,extensions:ext}});
+  const r=a.getClientExtensionResults();
+  const f=r.prf&&r.prf.results&&r.prf.results.first;
+  return {a,prf:f?new Uint8Array(f):null};
+}
+const aesKey=async prf=>{
+  const k=await crypto.subtle.importKey('raw',prf,'HKDF',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'HKDF',hash:'SHA-256',salt:enc.encode('trial-seal'),info:enc.encode('token')},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+};
+function derToRaw(d){
+  d=new Uint8Array(d);let i=2;if(d[1]&0x80)i=2+(d[1]&0x7f);
+  const rl=d[i+1];let r=d.slice(i+2,i+2+rl);i=i+2+rl;
+  const sl=d[i+1];let s=d.slice(i+2,i+2+sl);
+  const fix=x=>{while(x.length>32&&x[0]===0)x=x.slice(1);const o=new Uint8Array(32);o.set(x,32-x.length);return o};
+  return cat(fix(r),fix(s));
+}
+async function verifyAssertion(a,challenge){
+  const cd=JSON.parse(new TextDecoder().decode(a.response.clientDataJSON));
+  if(cd.challenge!==b64u(challenge))return '署名の中の問いかけが違う';
+  const ad=new Uint8Array(a.response.authenticatorData);
+  if(!(ad[32]&4))return '本人確認の印が立っていない';
+  const pub=await crypto.subtle.importKey('spki',unb64(S.cred.pub),{name:'ECDSA',namedCurve:'P-256'},false,['verify']);
+  const msg=cat(ad,await sha(a.response.clientDataJSON));
+  const ok=await crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},pub,derToRaw(a.response.signature),msg);
+  return ok?null:'署名が合わない';
+}
+const errText=e=>e&&e.name==='NotAllowedError'?'Face IDが取り消されたか、失敗しました（NotAllowedError）':(e&&e.name?e.name+'：':'')+(e&&e.message||e);
+const needSecure=()=>{if(!window.PublicKeyCredential)throw new Error('このブラウザはパスキーを使えません')};
+
+/* ---------- 各動作 ---------- */
+const acts={
+async reg(){
+  needSecure();
+  const c=await navigator.credentials.create({publicKey:{rp:{name:'iPhone試し'},user:{id:rand(16),name:'trial',displayName:'trial'},challenge:rand(32),pubKeyCredParams:[{type:'public-key',alg:-7}],authenticatorSelection:{authenticatorAttachment:'platform',residentKey:'required',userVerification:'required'},timeout:60000,extensions:{prf:{eval:{first:SALT}}}}});
+  const pub=c.response.getPublicKey&&c.response.getPublicKey();
+  if(!pub)throw new Error('公開鍵が取れませんでした');
+  const ext=c.getClientExtensionResults();
+  S.cred={id:b64(c.rawId),pub:b64(pub),prfEnabled:!!(ext.prf&&ext.prf.enabled)};save();
+  const sa=standalone();
+  setRes('1',sa?'ok':'part',sa?'登録できました（ホーム画面の形）':'登録はできたが、ホーム画面の形ではありません。ホーム画面のアイコンから開き直して、もう一度「もう一度確認する」を押してください');
+  setRes('2','wait','登録の時のPRF：'+(S.cred.prfEnabled?'使える見込み':'印なし')+'。②のボタンで確かめます');
+},
+async face1(){
+  const r=await getA(rand(32),false);
+  const sa=standalone();
+  setRes('1',sa?'ok':'part',sa?'確認できました（ホーム画面の形・Face IDまたはパスコード）':'確認はできたが、ホーム画面の形ではありません');
+},
+async prf(){
+  const r=await getA(rand(32),true);
+  if(r.prf&&r.prf.length===32)setRes('2','ok','秘密の値（32バイト）をもらえました。値そのものは表示しません');
+  else setRes('2','ng','秘密の値がもらえませんでした（PRFの結果が空）');
+},
+async seal(){
+  const tok=$('#tok').value.trim(),repo=$('#repo').value.trim();
+  if(!tok)throw new Error('鍵を入れてください');
+  if(!/^[\w.-]+\/[\w.-]+$/.test(repo))throw new Error('上の欄に「所有者/名前」を入れてください');
+  S.repo=repo;
+  const r=await getA(rand(32),true);
+  if(!r.prf)throw Object.assign(new Error('秘密の値がもらえず、ふうできません（②が×の形）'),{name:'NoPRF'});
+  const iv=rand(12),k=await aesKey(r.prf);
+  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},k,enc.encode(tok));
+  S.sealed={iv:b64(iv),ct:b64(ct),at:now(),boot:bootId};save();
+  tokenMem=tok;$('#tok').value='';
+  setRes('3','part','ふうして保存しました（この画面の中の動きはここまで）。アプリを閉じて開き直したあと、「開き直したあと解く」を押してください');
+},
+async unseal3(){
+  const ok=await unsealCore();
+  if(!ok)return;
+  if(S.sealed.boot===bootId)setRes('3','part','解けましたが、ふうした時と同じ画面です。一度アプリを閉じて開き直してから押してください');
+  else setRes('3','ok','開き直したあとに解けました');
+  autoSeven();
+},
+async restart(){S.restartAt=now();save();setRes('7','wait','再起動の時刻を記録しました（'+fmt(S.restartAt)+'）。再起動してアイコンを開き、「再起動のあと解く」を押してください')},
+async unseal7(){
+  if(!S.restartAt)throw new Error('先に「今から再起動する」を押して時刻を記録してください');
+  const ok=await unsealCore();if(!ok)return;
+  autoSeven();
+  if(!(S.res['7']&&S.res['7'].s==='ok'))setRes('7','part','解けましたが、再起動の記録より前の画面かもしれません。再起動してから押してください');
+},
+async fail8(){
+  if(!S.sealed)throw new Error('先に③でふうして保存してください');
+  tokenMem=null;
+  alert('これから顔の確認が出ます。わざと失敗させるか、取り消してください。');
+  let err=null,got=false;
+  try{
+    const r=await getA(rand(32),true);
+    const k=await aesKey(r.prf);
+    await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(S.sealed.iv)},k,unb64(S.sealed.ct));
+    got=true;
+  }catch(e){err=e}
+  if(!got){
+    if(!err||err.name!=='NotAllowedError'){setRes('8','part','解けませんでしたが、顔の失敗や取り消し（NotAllowedError）ではない止まり方です：'+errText(err));return}
+    setRes('8','ok','失敗のあと解けませんでした：'+errText(err)+'\n鍵はメモリにありません');
+    const i=await ask('8','パスコードの入力画面は出ましたか？',['出なかった（止まった）','パスコードに回った']);
+    S.res['8'].note+='\nパスコードの画面：'+(i?'出た':'出なかった');save();show('8','ok',S.res['8'].note);
+  }else{
+    const i=await ask('8','解けてしまいました。どう解けましたか？',['顔で成功した（わざと失敗できなかった）','パスコードに回って解けた']);
+    setRes('8',i?'ok':'part',i?'パスコードに回って解けました。本人確認は通っています（記録）':'顔で成功したため失敗の試しになっていません。もう一度、顔を外して試してください');
+  }
+},
+async issue(){
+  const tok=needTok(),repo=repoName();S.okRepo=null;save();gate();
+  const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+  const rr=await fetch('https://api.github.com/repos/'+repo,{headers:H});
+  if(!rr.ok)throw new Error('リポを読めません（'+rr.status+'）。名前と鍵の届く先を見直してください');
+  const j=await rr.json();
+  if(j.private!==true){setRes('4','ng','止めました：リポが非公開ではありません');return}
+  if(j.size!==0){setRes('4','ng','止めました：リポが空ではありません（空のリポを使う）');return}
+  const lr=await fetch('https://api.github.com/user/repos?per_page=5',{headers:H});
+  if(!lr.ok){setRes('4','ng','止めました：鍵の届く範囲が読めません（'+lr.status+'）。範囲が分からない鍵では票を作りません');return}
+  const l=await lr.json();
+  if(!Array.isArray(l)){setRes('4','ng','止めました：鍵の届く範囲の返事が読めません');return}
+  if(l.length===0){setRes('4','ng','止めました：この鍵で見えるリポが0個です。鍵の「届くリポ」に試し用のリポを選んでいるか見てください');return}
+  if(l.length>1){setRes('4','ng','止めました：この鍵が届くリポが '+l.length+' 個あります（公開のリポ、または「すべてのリポ」を選んでいると、こうなります）。鍵を作り直し、届くリポを試し用の1個だけにしてください');return}
+  if(l[0].full_name!==j.full_name){setRes('4','ng','止めました：この鍵が届く1個は、欄に入れたリポと違います。欄の名前と鍵の届く先をそろえてください');return}
+  const pr=await fetch('https://api.github.com/repos/'+repo+'/issues',{method:'POST',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify({title:'試し（ダミー）'+new Date().toISOString(),body:'これは試しのダミーの票です。本物の文字ではありません。'})});
+  if(pr.status===201){const p=await pr.json();S.okRepo=repo;S.okAt=now();save();setRes('4','ok','票を作れました（番号 '+p.number+'）。アプリ経由の印（performed_via_github_app）：'+(p.performed_via_github_app?'あり（要確認）':'なし')+'。GitHubで開いて⑤を見てください');gate();}
+  else{S.okRepo=null;save();setRes('4','ng','票を作れませんでした（'+pr.status+'）');gate()}
+},
+async a5(){
+  const i=await ask('5','④の票の画面で、アプリ経由の表示は出ていましたか？',['出ていない（空）','何か出ていた']);
+  setRes('5',i?'ng':'ok',i?'連携アプリの表示が出ていた':'連携アプリの欄は空だった（目で確認）');
+},
+async f6(){
+  const zr=await fetch('https://api.github.com/zen');
+  if(!zr.ok)throw new Error('GitHubから文字を取れませんでした（'+zr.status+'）');
+  const text=await zr.text();
+  const out=await frameRun(`<body style="font:14px sans-serif;margin:8px"><div id=t>待っています</div><script>addEventListener('message',async e=>{document.getElementById('t').textContent=e.data.t;const d=new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(e.data.t)));parent.postMessage({h:[...d].map(x=>x.toString(16).padStart(2,'0')).join('')},'*')});parent.postMessage({ready:1},'*')<\/script></body>`,text);
+  const want=hex(await sha(enc.encode(text)));
+  if(out&&out.h===want)setRes('6','part','流し込みは動きました（取ってきた文字を枠が受け取り、一致）。\n枠の中のログイン札（別の住所のクッキー）は、別の住所が要るのでこの1枚では測れません');
+  else setRes('6','ng','枠が受け取れませんでした（一致せず）');
+},
+async th9(){
+  const kp=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},false,['sign','verify']);
+  let ex='取り出せてしまった';
+  try{await crypto.subtle.exportKey('jwk',kp.privateKey)}catch(e){ex='取り出せなかった（正しい）'}
+  throwMem=kp;await idbPut('throw',kp);
+  setRes('9',ex.startsWith('取り出せなかった')?'part':'ng','作った鍵：'+ex+'\n次に「署名してみる」。そのあと別のアプリへ行って戻り、捨てられたかを見ます');
+},
+async th9s(){
+  const kp=throwMem||await idbGet('throw');
+  if(!kp)throw new Error('先に鍵を作ってください');
+  const m=enc.encode('trial-'+now()),sg=await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},kp.privateKey,m);
+  const ok=await crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},kp.publicKey,sg,m);
+  const kept=S.keepSeen===null?'まだ分からない':(S.keepSeen?'前に開いた時、鍵は残っていた':'前に開いた時、鍵は残っていなかった');
+  const dropped=hiddenCount?(throwMem?'画面を隠したが、メモリの鍵は捨てられていない':'画面を隠した時にメモリの鍵を捨てた（'+hiddenCount+'回）'):'まだ画面を隠していない';
+  setRes('9',ok?'ok':'ng','署名と検算：'+(ok?'できた':'合わない')+'\n'+kept+'\n'+dropped+'\n（残らなくても動く設計です。ここは記録のみ）');
+},
+async f10(){
+  const out=await frameRun(`<body><script>(async()=>{const r={};try{top.location.href='about:blank'}catch(e){}try{void parent.document.title;r.par='読めた'}catch(e){r.par='止まった'}try{await fetch('https://example.com/',{mode:'no-cors'});r.net='出られた'}catch(e){r.net='止まった'}try{localStorage.getItem('x');r.st='読めた'}catch(e){r.st='止まった'}parent.postMessage({r10:r},'*')})();<\/script></body>`,null,'r10');
+  await new Promise(r=>setTimeout(r,1000));
+  const stayed=document.getElementById('items')!==null;
+  const r=out&&out.r10;
+  if(!r){setRes('10','ng','枠から返事がありません');return}
+  const all=r.par==='止まった'&&r.net==='止まった'&&r.st==='止まった'&&stayed;
+  setRes('10',all?'ok':'ng','外のページを動かす：'+(stayed?'止まった':'動いてしまった')+'\n外のページを読む：'+r.par+'\n外への通信：'+r.net+'\n端末の保存を読む：'+r.st);
+},
+async one11(){
+  const ch=await sha(enc.encode('ticket-'+now()+b64u(rand(8))));
+  const r=await getA(ch,true);
+  const bad=await verifyAssertion(r.a,ch);
+  const hasPrf=r.prf&&r.prf.length===32;
+  if(bad||!hasPrf){setRes('11','ng','署名：'+(bad||'合った')+'／秘密の値：'+(hasPrf?'もらえた':'もらえない'));return}
+  const i=await ask('11','今回、Face IDの画面は何回出ましたか？',['1回','2回以上']);
+  setRes('11',i?'ng':'ok','署名は検算で合い、秘密の値も同時にもらえました。Face IDの回数：'+(i?'2回以上':'1回'));
+},
+async sg12(){
+  if(!standalone()){setRes('12','part','ホーム画面のアイコンから開いた形ではありません。開き直して押してください');return}
+  let kp=throwMem||await idbGet('throw');
+  if(!kp){kp=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},false,['sign','verify']);throwMem=kp;await idbPut('throw',kp)}
+  const msg='trial-'+now(),m=enc.encode(msg);
+  const sg=new Uint8Array(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},kp.privateKey,m));
+  const ok=await crypto.subtle.verify({name:'ECDSA',hash:'SHA-256'},kp.publicKey,sg,m);
+  const jwk=await crypto.subtle.exportKey('jwk',kp.publicKey);
+  const bundle=JSON.stringify({jwk:{kty:jwk.kty,crv:jwk.crv,x:jwk.x,y:jwk.y},msg,sig_p1363_b64:b64(sg)});
+  setRes('12',ok?'ok':'ng','ページでの検算：'+(ok?'合った':'合わない')+'\n手元の検算用の文（verify_sig.py に渡す）：\n'+bundle);
+},
+async late13(){
+  const left=S.revokeAt?S.revokeAt+8*DAY-now():null;
+  if(left===null||left>0)throw new Error('まだ8日たっていません');
+  if(!S.sealed)throw new Error('ふうした記録がありません');
+  const ok=await unsealCore();if(!ok)return;
+  const early=S.opens.filter(t=>t>S.revokeAt&&t!==bootAt).length;
+  if(early>0){setRes('13','part','解けましたが、鍵を消した確かめのあと、8日の間に '+early+' 回アイコンを開いています（数え直しになる見込み）。\n8日後（'+((now()-S.revokeAt)/DAY).toFixed(1)+'日）');return}
+  setRes('13','ok','8日後（'+((now()-S.revokeAt)/DAY).toFixed(1)+'日）に解けました。ただし「消えない」証明にはなりません。消えた時は、細い鍵を発行し直して、ふうをやり直します（約3分）');
+},
+async m14(){
+  const v=window.visualViewport,kb=window.innerHeight-(v?v.height:window.innerHeight);
+  const vis=el=>{const r=el.getBoundingClientRect(),vt=v?v.offsetTop:0,vh=v?v.height:innerHeight;return r.top>=vt-1&&r.bottom<=vt+vh+1&&r.bottom>0};
+  const barOk=vis($('#mockbar')),taOk=vis($('#ta')),text=$('#ta').value;
+  const kbOk=m14.maxKb>100;
+  const ja=/[ぁ-んァ-ヶ一-龠]/.test(text),comp=m14.comp>=1&&m14.compEnd>=1;
+  const lines=`キーボードの高さ（最大）：${Math.round(m14.maxKb)}px／変換の回数：${m14.compEnd}／入力：${ja?'日本語あり':'日本語なし'}\n枠の表示：${barOk?'見えている':'隠れた'}／入力欄：${taOk?'見えている':'隠れた'}（今の画面）`;
+  if(!kbOk||!ja)setRes('14','part',lines+'\n入力欄を押して日本語を打ってから、もう一度押してください');
+  else setRes('14',(comp&&m14.barOkAtMax&&barOk&&taOk)?'ok':'ng',lines+'\nキーボードが出ている間の枠の表示：'+(m14.barOkAtMax?'見えていた':'隠れた'));
+},
+async rev(){
+  if(!(S.res['4']&&S.res['4'].s==='ok'&&S.okRepo))throw new Error('先に④に受かってください（票の先は④に受かったリポだけです）');
+  if(!S.sealed)throw new Error('ふうした鍵がありません（③）');
+  const tok=tokenMem||await unsealCore(true);
+  if(!tok)return;
+  const repo=S.okRepo;
+  const pr=await fetch('https://api.github.com/repos/'+repo+'/issues',{method:'POST',headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json','Content-Type':'application/json'},body:JSON.stringify({title:'消した鍵の試し（ダミー）',body:'ダミーです。'})});
+  let msg='';try{msg=(await pr.json()).message||''}catch(e){}
+  if(pr.status===201){setRes('r','ng','票が作れてしまいました。鍵がまだ生きています。GitHubで鍵を消してからもう一度');return}
+  if(pr.status!==401){setRes('r','part','返事は '+pr.status+' '+msg+'。「鍵が消えた」と言えるのは401（資格なし）だけなので、〇にしません。8日の数えも始めません。鍵を消せているかをGitHubで見てからもう一度');tokenMem=null;return}
+  S.revokeAt=now();save();
+  setRes('r','ok','断られた返事：401 '+msg+'\n日時：'+fmt(S.revokeAt)+'\nここから8日後が⑬の日（'+fmt(S.revokeAt+8*DAY)+'）。それまでアイコンを開かない');
+  tokenMem=null;
+  cd();
+},
+async export(){
+  const L=['iPhoneの試し 結果','日時：'+fmt(now()),'iOSの版：'+iosVer(),'開き方：'+(standalone()?'ホーム画面':'Safari'),'住所：'+location.host,'開いた回数：'+S.opens.length+'（最初：'+fmt(S.opens[0])+'）','鍵を消した確かめのあとに開いた回数（今回を除く）：'+(S.revokeAt?S.opens.filter(t=>t>S.revokeAt&&t!==bootAt).length:'まだ数えていない')];
+  ITEMS.forEach(i=>{const r=S.res[i.k];L.push(`${num(i.k)||'確かめ '}${i.t}：${r?({ok:'〇',ng:'×',part:'△',wait:'未'}[r.s]):'未'}${r&&r.note?'\n  '+r.note.replace(/\n/g,'\n  '):''}`)});
+  const o=$('#out');o.hidden=false;o.textContent=L.join('\n');
+},
+async wipe(){
+  if(!confirm('この端末の試しの記録と保存した鍵を全部消します。いいですか？'))return;
+  localStorage.removeItem(SK);try{indexedDB.deleteDatabase('iphonetrial')}catch(e){}
+  location.reload();
+}
+};
+
+/* ---------- 共通の部品 ---------- */
+function repoName(){
+  const r=$('#repo').value.trim();
+  if(!/^[\w.-]+\/[\w.-]+$/.test(r))throw new Error('「試し専用リポ」の欄に「所有者/名前」を入れてください');
+  S.repo=r;save();return r;
+}
+function needTok(){if(!tokenMem)throw new Error('鍵が手元にありません。先に③で解いてください');return tokenMem}
+async function unsealCore(returnTok){
+  if(!S.sealed)throw new Error('先に③でふうして保存してください');
+  try{
+    const r=await getA(rand(32),true);
+    if(!r.prf){setRes('3','ng','秘密の値がもらえず解けません');return null}
+    const k=await aesKey(r.prf);
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(S.sealed.iv)},k,unb64(S.sealed.ct));
+    tokenMem=new TextDecoder().decode(pt);
+    return returnTok?tokenMem:true;
+  }catch(e){
+    if(e.name==='OperationError')setRes('3','ng','解けませんでした（秘密の値が前と違う）');
+    else note('3',errText(e));
+    return null;
+  }
+}
+function autoSeven(){
+  if(S.restartAt&&S.sealed&&S.restartAt>S.sealed.at&&now()>S.restartAt&&S.sealed.boot!==bootId)setRes('7','ok','再起動のあと（'+fmt(S.restartAt)+' より後）に解けました');
+}
+function note(k,t){const n=$('#n'+k);n.hidden=false;n.textContent=t}
+function frameRun(html,msg,key){
+  return new Promise((res,rej)=>{
+    const f=document.createElement('iframe');
+    f.setAttribute('sandbox','allow-scripts');f.style.cssText='width:100%;height:60px;border:1px solid #99a';
+    f.srcdoc=html;
+    const host=$('#ask'+(key==='r10'?'10':'6'));host.innerHTML='';host.appendChild(f);
+    const t=setTimeout(()=>{removeEventListener('message',h);res(null)},6000);
+    function h(e){
+      if(e.source!==f.contentWindow)return;
+      const d=e.data||{};
+      if(d.ready&&msg!==null){f.contentWindow.postMessage({t:msg},'*');return}
+      if(d.h||d.r10){clearTimeout(t);removeEventListener('message',h);res(d)}
+    }
+    addEventListener('message',h);
+  });
+}
+/* 保管庫 */
+function idb(){return new Promise((res,rej)=>{const q=indexedDB.open('iphonetrial',1);q.onupgradeneeded=()=>q.result.createObjectStore('k');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+async function idbPut(k,v){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction('k','readwrite');t.objectStore('k').put(v,k);t.oncomplete=()=>res();t.onerror=()=>rej(t.error)})}
+async function idbGet(k){const d=await idb();return new Promise((res,rej)=>{const q=d.transaction('k').objectStore('k').get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+
+/* 14：入力欄の測り */
+const m14={maxKb:0,comp:0,compEnd:0,barOkAtMax:true};
+function setup14(){
+  const ta=$('#ta'),v=window.visualViewport;
+  const upd=()=>{
+    const kb=innerHeight-(v?v.height:innerHeight);
+    if(kb>m14.maxKb){m14.maxKb=kb;
+      const r=$('#mockbar').getBoundingClientRect(),vt=v?v.offsetTop:0,vh=v?v.height:innerHeight;
+      m14.barOkAtMax=r.top>=vt-1&&r.bottom<=vt+vh+1;}
+    $('#live14').textContent=`いまのキーボードの高さ ${Math.round(kb)}px／最大 ${Math.round(m14.maxKb)}px／変換 ${m14.compEnd}回`;
+  };
+  if(v){v.addEventListener('resize',()=>setTimeout(upd,50));v.addEventListener('scroll',()=>setTimeout(upd,50))}
+  ta.addEventListener('focus',()=>setTimeout(upd,600));
+  ta.addEventListener('compositionstart',()=>{m14.comp++});
+  ta.addEventListener('compositionend',()=>{m14.compEnd++;upd()});
+  upd();
+}
+function gate(){const b=document.querySelector('#cr button[data-act="rev"]');if(b)b.dataset.locked=(S.res['4']&&S.res['4'].s==='ok'&&S.okRepo)?'':'1';const x=$('#cr');if(x&&b){b.disabled=!!b.dataset.locked;}}
+function cd(){
+  const b=$('#b13'),c=$('#cd13');if(!b)return;
+  if(!S.revokeAt){c.textContent='「鍵を消した確かめ」がまだなので、8日の数えは始まっていません';b.disabled=true;return}
+  const left=S.revokeAt+8*DAY-now();
+  if(left>0){const d=Math.floor(left/DAY),h=Math.floor(left%DAY/3600000);c.textContent=`あと ${d}日 ${h}時間。それまで押せません。アイコンを開かないでください`;b.disabled=true}
+  else{c.textContent='8日たちました。押せます';b.disabled=false}
+}
+
+/* ---------- 起動 ---------- */
+addEventListener('click',async ev=>{
+  const b=ev.target.closest('button[data-act]');if(!b)return;
+  const k=b.dataset.act,card=b.closest('.box');
+  const id=card&&card.id?card.id.slice(1):null;
+  if(BLOCKED)return;
+  b.disabled=true;
+  try{await acts[k]()}catch(e){
+    const n=id?$('#n'+id):null;
+    if(n){n.hidden=false;n.textContent='止まりました：'+errText(e)+(e.name==='NotAllowedError'?'\n（⑧の材料です。意図した失敗でなければ、もう一度）':'')}
+    else alert(errText(e));
+  }
+  b.disabled=false;
+  gate();
+  if(k==='late13')cd();
+});
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden'){hiddenAt=now();tokenMem=null;if(throwMem){throwMem=null;hiddenDropped=true}hiddenCount++}
+  else if(hiddenAt&&now()-hiddenAt>LONG_HIDE){bootAt=now();S.opens.push(bootAt);if(S.opens.length>60)S.opens=S.opens.slice(-60);save();hiddenAt=null}
+  else hiddenAt=null;
+});
+(async function boot(){
+  const host=location.hostname;
+  const g=$('#guard');
+  const ALLOW=['49960de5880e8c687434170f6476605b8fe4aeb9a28632c7995cf3ba831d9763', '12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0', 'ae1839fda54410f7ff68d16acb08fa44971aae67eaea2af2758a4a64679871ef'];
+  let hh='';try{hh=hex(await sha(enc.encode(host)))}catch(e){}
+  if(!ALLOW.includes(hh)){document.querySelectorAll('button').forEach(x=>x.disabled=true);BLOCKED=true;g.hidden=false;g.textContent='止めました：この住所では動かしません。決められた住所に置いたときだけ動きます。';return}
+  if(location.protocol!=='https:'&&host!=='localhost'&&host!=='127.0.0.1'){BLOCKED=true;g.hidden=false;g.textContent='https の住所で開いてください（今の開き方ではFace IDが使えません）。';return}
+  bootAt=now();S.opens.push(bootAt);if(S.opens.length>60)S.opens=S.opens.slice(-60);
+  try{S.keepSeen=!!(await idbGet('throw'))}catch(e){S.keepSeen=null}
+  save();
+  $('#env').textContent=`iOSの版：${iosVer()}／開き方：${standalone()?'ホーム画面から（正しい形）':'Safariのタブ（ホーム画面から開き直す）'}／住所：${host||'なし'}／パスキー：${window.PublicKeyCredential?'使える':'使えない'}`;
+  draw();gate();
+  $('#repo').value=S.repo||'';
+  $('#repo').addEventListener('change',()=>{S.repo=$('#repo').value.trim();save()});
+  setup14();cd();
+  setInterval(cd,60000);
+})();
+</script>
+</body>
+</html>
