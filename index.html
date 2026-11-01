@@ -138,7 +138,7 @@ const ITEMS=[
 {k:'1',t:'ホーム画面から開くと、Face IDが出る',d:'アイコンから開いた形で、顔の確認が出ます。Face IDの登録もここでします。',a:'<button data-act="reg">Face IDを登録する</button><button class="sub" data-act="face1">もう一度確認する</button>'},
 {k:'2',t:'「ふう」をする力が使える',d:'顔の確認と同時に、その人だけの秘密の値をもらえるかを見ます（PRFという名前の力）。',a:'<button data-act="prf">秘密の値をもらう</button>'},
 {k:'3',t:'ふうをした鍵を保存し、次に開いた時に解ける',d:'細い鍵を秘密の値でふうして保存します。アプリを閉じて開き直したあと、もう一度解きます。',a:'<label for="tok">試し専用の細い鍵（ふうのあと消えます）</label><input id="tok" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button data-act="seal">ふうして保存</button><button class="sub" data-act="unseal3">開き直したあと解く</button>'},
-{k:'4',t:'GitHubに試しの票を作れる',d:'試し専用リポに、ダミーの票（Issue）を1枚作ります。先に、リポが空で非公開か、鍵が1つのリポだけに届くかも確かめます。',a:'<button data-act="issue">票を作る</button>'},
+{k:'4',t:'GitHubに試しの票を作れる',d:'試し専用リポに、ダミーの票（Issue）を1枚作ります。先に、リポが空で非公開か、鍵で見える非公開のリポが1つだけかも確かめます（公開のリポは数えません）。',a:'<button data-act="issue">票を作る</button>'},
 {k:'5',t:'票の「連携アプリ」の欄が空',d:'④の票をGitHubで開き、票の画面に、アプリ経由で作ったと分かる表示が出ていないかを目で見ます。',a:'<button class="sub" data-act="a5">見た</button>'},
 {k:'6',t:'枠の中に、取ってきた画面を流し込める',d:'GitHubから取った文字を、閉じた枠の中へ流し込み、枠の中で正しく受け取れたかを見ます。',a:'<button data-act="f6">流し込む</button>'},
 {k:'7',t:'iPhoneを再起動したあとも解ける',d:'再起動のあと、③で保存した鍵を解きます。再起動した日時をページが覚えます。',a:'<button class="sub" data-act="restart">今から再起動する（時刻を記録）</button><button data-act="unseal7">再起動のあと解く</button>'},
@@ -292,12 +292,12 @@ async issue(){
   if(!lr.ok){setRes('4','ng','止めました：鍵の届く範囲が読めません（'+lr.status+'）。範囲が分からない鍵では票を作りません');return}
   const l=await lr.json();
   if(!Array.isArray(l)||l.some(r=>!r||typeof r.full_name!=='string')||/rel="next"/.test(lr.headers.get('link')||'')){setRes('4','ng','止めました：鍵の届く範囲の返事が読めません');return}
-  const w=l.filter(r=>!(r.private===false&&r.permissions&&r.permissions.push===false));
+  const w=l.filter(r=>r.private!==false),pubN=l.length-w.length;
   if(w.length===0){setRes('4','ng','止めました：この鍵で見えるリポが0個です。鍵の「届くリポ」に試し用のリポを選んでいるか見てください');return}
-  if(w.length>1){setRes('4','ng','止めました：この鍵で書けるリポが '+w.length+' 個あります（「すべてのリポ」を選んでいると、こうなります）。鍵を作り直し、届くリポを試し用の1個だけにしてください');return}
+  if(w.length>1){setRes('4','ng','止めました：この鍵で見える非公開のリポが '+w.length+' 個あります（「すべてのリポ」を選んでいると、こうなります）。鍵を作り直し、届くリポを試し用の1個だけにしてください');return}
   if(w[0].full_name!==j.full_name){setRes('4','ng','止めました：この鍵が届く1個は、欄に入れたリポと違います。欄の名前と鍵の届く先をそろえてください');return}
   const pr=await fetch('https://api.github.com/repos/'+repo+'/issues',{method:'POST',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify({title:'試し（ダミー）'+new Date().toISOString(),body:'これは試しのダミーの票です。本物の文字ではありません。'})});
-  if(pr.status===201){const p=await pr.json();S.okRepo=repo;S.okAt=now();save();setRes('4','ok','票を作れました（番号 '+p.number+'）。アプリ経由の印（performed_via_github_app）：'+(p.performed_via_github_app?'あり（要確認）':'なし')+'。GitHubで開いて⑤を見てください');gate();}
+  if(pr.status===201){const p=await pr.json();S.okRepo=repo;S.okAt=now();save();setRes('4','ok','票を作れました（番号 '+p.number+'）。アプリ経由の印（performed_via_github_app）：'+(p.performed_via_github_app?'あり（要確認）':'なし')+'。見えた公開のリポ '+pubN+' 個は、書けるかを測っていません。鍵の範囲の証拠は、持ち主がGitHubの鍵の画面を撮った写真です。GitHubで開いて⑤を見てください');gate();}
   else{S.okRepo=null;save();setRes('4','ng','票を作れませんでした（'+pr.status+'）');gate()}
 },
 async a5(){
