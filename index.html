@@ -288,13 +288,14 @@ async issue(){
   const j=await rr.json();
   if(j.private!==true){setRes('4','ng','止めました：リポが非公開ではありません');return}
   if(j.size!==0){setRes('4','ng','止めました：リポが空ではありません（空のリポを使う）');return}
-  const lr=await fetch('https://api.github.com/user/repos?per_page=5',{headers:H});
+  const lr=await fetch('https://api.github.com/user/repos?per_page=100',{headers:H});
   if(!lr.ok){setRes('4','ng','止めました：鍵の届く範囲が読めません（'+lr.status+'）。範囲が分からない鍵では票を作りません');return}
   const l=await lr.json();
-  if(!Array.isArray(l)){setRes('4','ng','止めました：鍵の届く範囲の返事が読めません');return}
-  if(l.length===0){setRes('4','ng','止めました：この鍵で見えるリポが0個です。鍵の「届くリポ」に試し用のリポを選んでいるか見てください');return}
-  if(l.length>1){setRes('4','ng','止めました：この鍵が届くリポが '+l.length+' 個あります（公開のリポ、または「すべてのリポ」を選んでいると、こうなります）。鍵を作り直し、届くリポを試し用の1個だけにしてください');return}
-  if(l[0].full_name!==j.full_name){setRes('4','ng','止めました：この鍵が届く1個は、欄に入れたリポと違います。欄の名前と鍵の届く先をそろえてください');return}
+  if(!Array.isArray(l)||l.some(r=>!r||typeof r.full_name!=='string')||/rel="next"/.test(lr.headers.get('link')||'')){setRes('4','ng','止めました：鍵の届く範囲の返事が読めません');return}
+  const w=l.filter(r=>!(r.private===false&&r.permissions&&r.permissions.push===false));
+  if(w.length===0){setRes('4','ng','止めました：この鍵で見えるリポが0個です。鍵の「届くリポ」に試し用のリポを選んでいるか見てください');return}
+  if(w.length>1){setRes('4','ng','止めました：この鍵で書けるリポが '+w.length+' 個あります（「すべてのリポ」を選んでいると、こうなります）。鍵を作り直し、届くリポを試し用の1個だけにしてください');return}
+  if(w[0].full_name!==j.full_name){setRes('4','ng','止めました：この鍵が届く1個は、欄に入れたリポと違います。欄の名前と鍵の届く先をそろえてください');return}
   const pr=await fetch('https://api.github.com/repos/'+repo+'/issues',{method:'POST',headers:{...H,'Content-Type':'application/json'},body:JSON.stringify({title:'試し（ダミー）'+new Date().toISOString(),body:'これは試しのダミーの票です。本物の文字ではありません。'})});
   if(pr.status===201){const p=await pr.json();S.okRepo=repo;S.okAt=now();save();setRes('4','ok','票を作れました（番号 '+p.number+'）。アプリ経由の印（performed_via_github_app）：'+(p.performed_via_github_app?'あり（要確認）':'なし')+'。GitHubで開いて⑤を見てください');gate();}
   else{S.okRepo=null;save();setRes('4','ng','票を作れませんでした（'+pr.status+'）');gate()}
